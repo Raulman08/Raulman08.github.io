@@ -28,7 +28,7 @@ header {
 
 /* Estilos de navegación */
 nav {
-    background-color: #f0f0f0;
+    background-color: var(--background-color);
     padding: 10px;
 }
 
