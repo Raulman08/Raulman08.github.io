@@ -89,4 +89,16 @@ a:hover {
     background-color: #2980b9;
 }
 
-
+.boxes a{
+    outline: none;
+    text-decoration: none;
+    display: inline-block;
+    width: 19.5%;
+    margin-right: 0.625%;
+    text-align: center;
+    line-height: 3;
+    color: black;
+}
+.boxes a:hover{
+    background-color: gray;
+}
