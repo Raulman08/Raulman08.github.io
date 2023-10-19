@@ -1,22 +1,8 @@
-:root {
-  --background-color: #fff;
-  --text-color: #000;
-}
- 
-/* Estilos para el modo oscuro */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: #000;
-    --text-color: #fff;
-  }
-}
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--background-color);
-    color: var(--text-color
 }
 
 header {
@@ -28,7 +14,7 @@ header {
 
 /* Estilos de navegación */
 nav {
-    background-color: var(--background-color);
+    background-color: #f0f0f0;
     padding: 10px;
 }
 
