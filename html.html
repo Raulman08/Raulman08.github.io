@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página de Resúmenes</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>ResoomSchool</h1>
+    </header>
+
+    <nav id="navegacion">
+        <ul>
+            <li><a href="#asignatura-matematicas">Matemáticas</a></li>
+            <li><a href="#asignatura-historia">Historia</a></li>
+            <!-- Agrega más asignaturas aquí -->
+        </ul>
+    </nav>
+
+    <section class="asignatura" id="asignatura-matematicas">
+        <h2>Matemáticas</h2>
+        <nav id="navegacion-temas-matematicas">
+            <ul>
+                <li><a href="#tema-algebra">Álgebra</a></li>
+                <li><a href="#tema-geometria">Geometría</a></li>
+                <!-- Agrega más temas de Matemáticas aquí -->
+            </ul>
+        </nav>
+    </section>
+
+    <section class="asignatura" id="asignatura-historia">
+        <h2>Historia</h2>
+        <nav id="navegacion-temas-historia">
+            <ul>
+                <li><a href="#tema-antigua">Historia Antigua</a></li>
+                <li><a href="#tema-moderna">Historia Moderna</a></li>
+                <!-- Agrega más temas de Historia aquí -->
+            </ul>
+        </nav>
+    </section>
+
+    <section class="tema" id="tema-algebra">
+        <h3>Álgebra</h3>
+        <ul id="resumenes-lista-algebra" class="pdf-list">
+            <!-- Aquí se mostrarán los enlaces para descargar PDFs con nombres personalizados -->
+        </ul>
+        <form id="formulario-resumen-algebra" enctype="multipart/form-data">
+            <label for="contenido-algebra">Publicar Resumen de Álgebra:</label>
+            <textarea id="contenido-algebra" name="contenido" rows="4" required></textarea>
+            <label for="archivo-pdf-algebra">Adjuntar PDF:</label>
+            <input type="file" id="archivo-pdf-algebra" name="archivo-pdf" accept=".pdf">
+            <button type="submit">Publicar Resumen</button>
+        </form>
+    </section>
+
+    <!-- Resto del contenido -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
