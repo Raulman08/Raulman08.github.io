@@ -20,7 +20,7 @@ nav {
 
 nav ul {
     list-style: none;
-    padding: 0;
+    padding: z;
 }
 
 nav ul li {
@@ -33,7 +33,6 @@ nav ul li {
 .tema {
     margin: 20px;
     padding: 20px;
-    border: 1px solid #ddd;
 }
 
 /* Estilos de botones */
@@ -101,4 +100,17 @@ a:hover {
 }
 .boxes a:hover{
     background-color: gray;
+}
+
+hr{
+    border: solid 3px gray;
+}
+.lat{
+    margin: 20px;
+    border-radius: 10%;
+    background-color: rgb(79, 138, 127);
+}
+
+.lat h2{
+    text-align: center;
 }
