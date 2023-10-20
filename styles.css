@@ -110,3 +110,12 @@ hr{
 h2{
     padding-left: 8px;
 }
+.sesion a{
+    text-decoration: none;
+    color: #f0f0f0;
+    font-size: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    position: relative;
+    left: 325px;
+    bottom: 53px;
+}
