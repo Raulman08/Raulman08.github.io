@@ -2,26 +2,18 @@
 <html>
 <head>
     <title>Página de Resúmenes</title>
-    <link rel="stylesheet" type="text/css" href="schoolweb2.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <header>
         <h1>ResoomSchool</h1>
-        <style> 
-        .sesion{
-            
-            
-        }
-        </style>
-        <div class="sesion">
-            <a href="">Iniciar Sesion</a>
-        </div>
     </header>
 
-    <nav id="navegacion">
+    <nav id="navegacion" class="boxes">
         <ul>
             <li><a href="#asignatura-matematicas">Matemáticas</a></li>
             <li><a href="#asignatura-historia">Historia</a></li>
+            <li><a href="#asignatura-castellano">Catellano</a></li>
             <!-- Agrega más asignaturas aquí -->
         </ul>
     </nav>
@@ -48,8 +40,19 @@
         </nav>
     </section>
 
+    <section class="asignatura" id="asignatura-castellano">
+        <h2>Castellano</h2>
+        <nav id="navegacion-temas-castellano">
+            <ul>
+                <li><a href="#tema-1">Tema_1</a></li>
+                <li><a href="#tema-2">Tema_2</a></li>
+                <!-- Agrega más temas de Historia aquí -->
+            </ul>
+        </nav>
+    </section>
+    <h2>Matematicas</h2>
     <section class="tema" id="tema-algebra">
-        <h3>Álgebra</h3>
+        <h3>Polinomios</h3>
         <ul id="resumenes-lista-algebra" class="pdf-list">
             <!-- Aquí se mostrarán los enlaces para descargar PDFs con nombres personalizados -->
         </ul>
@@ -61,7 +64,36 @@
             <button type="submit">Publicar Resumen</button>
         </form>
     </section>
-
+    <hr>
+    <h2>Castellano</h2>
+    <section class="tema" id="tema-1">
+        <h3>Tema_1 castellano</h3>
+        <ul id="resumenes-lista-1" class="pdf-list">
+            <!-- Aquí se mostrarán los enlaces para descargar PDFs con nombres personalizados -->
+        </ul>
+        <form id="formulario-resumen-1" enctype="multipart/form-data">
+            <label for="contenido-1">Publicar Resumen deñ Tema_1:</label>
+            <textarea id="contenido-1" name="contenido" rows="4" required></textarea>
+            <label for="archivo-pdf-1">Adjuntar PDF:</label>
+            <input type="file" id="archivo-pdf-1" name="archivo-pdf" accept=".pdf">
+            <button type="submit">Publicar Resumen</button>
+        </form>
+    </section>
+    
+    <section class="tema" id="tema-2">
+        <h3>Tema_2</h3>
+        <ul id="resumenes-lista-2" class="pdf-list">
+            <!-- Aquí se mostrarán los enlaces para descargar PDFs con nombres personalizados -->
+        </ul>
+        <form id="formulario-resumen-2" enctype="multipart/form-data">
+            <label for="contenido-2">Publicar Resumen de Tema_2:</label>
+            <textarea id="contenido-2" name="contenido" rows="4" required></textarea>
+            <label for="archivo-pdf-2">Adjuntar PDF:</label>
+            <input type="file" id="archivo-pdf-2" name="archivo-pdf" accept=".pdf">
+            <button type="submit">Publicar Resumen</button>
+        </form>
+    </section>
+    <hr>
     <!-- Resto del contenido -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
     <script src="scripts.js"></script>
