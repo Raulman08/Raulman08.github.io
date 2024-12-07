@@ -4,7 +4,7 @@ let totalDistance = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
     // Inicializar el mapa
-    map = L.map('map').setView([0, 0], 15);
+    map = L.map('map').setView([0, 0], 15); // Establecer vista inicial
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
@@ -29,6 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }).addTo(map);
     }, showError, {
         enableHighAccuracy: true
+    });
+
+    // Guardar el zoom actual para evitar que se deshaga
+    let currentZoom = map.getZoom();
+
+    map.on('zoomend', () => {
+        // Guardar el zoom después de cada cambio
+        currentZoom = map.getZoom();
     });
 });
 
@@ -91,6 +99,9 @@ function updatePosition(position) {
     // Añadir coordenadas y trazar línea
     coordinates.push([latitude, longitude]);
     polyline.setLatLngs(coordinates);
+
+    // Centrar mapa automáticamente pero manteniendo el zoom
+    map.setView([latitude, longitude], map.getZoom(), { animate: true });
 }
 
 function calculateDistance(coord1, coord2) {
