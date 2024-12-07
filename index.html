@@ -1,74 +1,25 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Castellano_1ev</title>
-    </head>
-    <body>
-        <h2>Realismo</h2>
-        <h3>Diferencias entre el romanticismo y el realismo</h3>
-        <table>
-            <tr>
-                <th>Romanticismo</th>
-                <th>Realismo</th>
-            </tr>
-            <tr>
-                <td>
-                    <ul>
-                        <li>idealizacion</li>
-                        <li>evasion</li>
-                        <li>etapa lejana</li>
-                        <li>individualismo</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>realismo</li>
-                        <li>observacion</li>
-                        <li>realidad presente</li>
-                        <li>grupo social</li>
-                    </ul>
-                </td>
-            </tr>
-        </table>
-        <h2>Novela Realista</h2>
-        <ul>
-            <li>conflicto individuo/sociedad</li>
-            <li>narrador onmisciente</li>
-            <li>estilo indirecto libre</li>
-            <li>pintura ambientada</li>
-            <li>estilos: Historico, sentimental y de costumbres</li>
-            <li>lenguaje natural adaptado a la condicion social de cada personaje</li>
-        </ul>
-        <h2>Naturalisno</h2>
-        <ul>
-            <li>vision de la realidad desagradable</li>
-            <li>personajes marginados socialmente</li>
-            <li>Determinación -- Los personajes estan condicionados de por vida</li>
-            <li>ambientes desagradables</li>
-        </ul>
-        <hr>
-        <h2>Benito Perez Galdos</h2>
-        <h3>Obras</h3>
-        <ul>
-            <li>Episodios Nacionales - Son novelas historicas en las que aparecen momentos historicos como la batalla de trafalgar. Pretende dar a conocer la historia de España</li>
-            <li>Novelas de tesis - En las que hay dos tesis diferentes representadas por Marianela y Doña perfecta</li>
-            <li>Novelas Realistas - en el que mostraba como era la realidad en esa epoca</li>
-            <li>Novelas idealistas - Son novelas que se centran en aspectos espirituales del ser humano </li>
-        </ul>
-        <h2>Emilia Pardo</h2>
-        <dl>
-            <dt>Quien es?</dt>
-            <dd>Emilia pardo fue una escritora que defendio sus derechos como mujer y escritora</dd>
-        </dl>
-        <h3>Pazos de Ulloa</h3>
-        <p>Nos presenta una lucha entre dos mundos: El mundo violento y el mundo civilizado. Esta ambientado en Galicia</p>
-        <h2>Leopaldo Alias "Clarin"</h2>
-        <h3>La regenta</h3>
-        <ul>
-            <li>Tematica - Trata sobre una joven que se tiene que casar con un señor mas mayor que ella al que no quiere. Los temas son: amor, libertad y muerte</li>
-            <li>Personajes - Ana(Joven bella), Don Fermin(Sacerdote) y Don Alvaro(el señor enamorado de Ana)</li>
-            <li>Finalidad - criticar la iglesia y el matrimonio de convenecia</li>
-            <li>Ambientado en Oviedo</li>
-        </ul>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento de Ruta</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+</head>
+<body>
+    <div id="map"></div>
+    <div id="controls">
+        <button id="startBtn">Empezar</button>
+        <button id="stopBtn" disabled>Parar</button>
+        <button id="saveBtn" disabled>Guardar Ruta</button>
+        <button id="exportBtn" disabled>Exportar Imagen</button>
+        <div id="stats">
+            <p>Distancia: <span id="distance">0.00</span> km</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
 </html>
