@@ -147,3 +147,14 @@ function exportMap() {
             console.error('Error al exportar el mapa:', error);
         });
 }
+const options = {
+    enableHighAccuracy: true,  // Usa GPS en lugar de redes Wi-Fi
+    timeout: 10000,            // Tiempo máximo de espera (10 segundos)
+    maximumAge: 0              // Obliga a no usar ubicaciones antiguas
+};
+
+navigator.geolocation.watchPosition(
+    updatePosition,  // Función para manejar actualizaciones
+    showError,       // Función para manejar errores
+    options
+);
