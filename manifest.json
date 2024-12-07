@@ -2,7 +2,7 @@
   "name": "Seguimiento GPS",
   "short_name": "GPS",
   "start_url": "/index.html",
-  "display": "standalone",
+  "display": "standalone",  // Esto asegura que se abra como una app
   "background_color": "#ffffff",
   "theme_color": "#0000ff",
   "icons": [
