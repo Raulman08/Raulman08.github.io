@@ -2,30 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
-    <title>Seguimiento de Ruta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Tracker</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="manifest" href="/manifest.json">
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dom-to-image@2.6.0/src/dom-to-image.min.js"></script>
 </head>
 <body>
-    <div id="map"></div>
-    <div id="controls">
-         <button id="startBtn">Iniciar</button>
-        <button id="stopBtn" disabled>Detener</button>
-        <button id="saveBtn" disabled>Guardar Ruta</button>
-        <button id="exportBtn" disabled>Exportar Mapa</button>
-        <button id="toggleRoutesBtn">Mostrar Rutas Guardadas</button>
-        <div id="stats">
-            <p>Distancia: <span id="distance">0.00</span> km</p>
+    <header>
+        <h1>Seguimiento de Rutas</h1>
+    </header>
+
+    <main>
+        <div id="map"></div>
+
+        <div id="controls">
+            <button id="startBtn">Iniciar</button>
+            <button id="stopBtn" disabled>Detener</button>
+            <button id="saveBtn" disabled>Guardar Ruta</button>
+            <button id="exportBtn" disabled>Exportar Mapa</button>
+            <button id="toggleRoutesBtn">Mostrar Rutas Guardadas</button>
         </div>
-    </div>
-    <div id="savedRoutes" style="display: none;">
-        <h3>Rutas Guardadas</h3>
-        <ul id="routesList"></ul>
-    </div>
-    <script src="script.js"></script>
+
+        <div id="savedRoutes" style="display: none;">
+            <h3>Rutas Guardadas</h3>
+            <ul id="routesList"></ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>Desarrollado por Raúl Martin Rosselló</p>
+    </footer>
+
+    <script src="app.js"></script>
 </body>
 </html>
