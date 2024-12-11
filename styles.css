@@ -68,3 +68,6 @@ button:disabled {
 #routesList li:hover {
     text-decoration: underline;
 }
+#toggleRoutesBtn {
+    margin-top: 10px;
+}
