@@ -91,7 +91,6 @@ function updatePosition(position) {
         const lastCoord = coordinates[coordinates.length - 1];
         const distance = calculateDistance(lastCoord, [latitude, longitude]);
         totalDistance += distance;
-        document.getElementById('distance').textContent = totalDistance.toFixed(2);
     }
 
     coordinates.push([latitude, longitude]);
@@ -140,6 +139,22 @@ function loadRoute(routeName) {
     map.fitBounds(polyline.getBounds());
 
     alert(`Ruta "${routeName}" cargada. Distancia total: ${route.totalDistance.toFixed(2)} km`);
+}
+
+function exportMap() {
+    const mapElement = document.getElementById('map');
+    domtoimage.toBlob(mapElement)
+        .then(blob => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'mapa.png';
+            a.click();
+            URL.revokeObjectURL(url);
+        })
+        .catch(error => {
+            console.error('Error al exportar el mapa:', error);
+        });
 }
 
 function calculateDistance(coord1, coord2) {
