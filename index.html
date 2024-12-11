@@ -13,15 +13,16 @@
 <body>
     <div id="map"></div>
     <div id="controls">
-        <button id="startBtn">Empezar</button>
-        <button id="stopBtn" disabled>Parar</button>
+         <button id="startBtn">Iniciar</button>
+        <button id="stopBtn" disabled>Detener</button>
         <button id="saveBtn" disabled>Guardar Ruta</button>
-        <button id="exportBtn" disabled>Exportar Imagen</button>
+        <button id="exportBtn" disabled>Exportar Mapa</button>
+        <button id="toggleRoutesBtn">Mostrar Rutas Guardadas</button>
         <div id="stats">
             <p>Distancia: <span id="distance">0.00</span> km</p>
         </div>
     </div>
-    <div id="savedRoutes">
+    <div id="savedRoutes" style="display: none;">
         <h3>Rutas Guardadas</h3>
         <ul id="routesList"></ul>
     </div>
