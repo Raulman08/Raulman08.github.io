@@ -1,26 +1,27 @@
 let map, polyline, watchId, liveMarker;
 let coordinates = [];
 let totalDistance = 0;
+let savedRoutes = JSON.parse(localStorage.getItem('savedRoutes')) || {};
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Inicializar el mapa
-    map = L.map('map').setView([0, 0], 15); // Establecer vista inicial
+    map = L.map('map').setView([0, 0], 15);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
     polyline = L.polyline([], { color: 'blue' }).addTo(map);
 
-    // Configurar botones
     document.getElementById('startBtn').addEventListener('click', startTracking);
     document.getElementById('stopBtn').addEventListener('click', stopTracking);
     document.getElementById('saveBtn').addEventListener('click', saveRoute);
     document.getElementById('exportBtn').addEventListener('click', exportMap);
 
-    // Obtener posición inicial
+    // Cargar rutas guardadas al iniciar
+    renderSavedRoutes();
+
     navigator.geolocation.getCurrentPosition(position => {
         const { latitude, longitude } = position.coords;
-        map.setView([latitude, longitude], 15); // Centrar mapa en la posición inicial
+        map.setView([latitude, longitude], 15);
         liveMarker = L.circleMarker([latitude, longitude], {
             radius: 8,
             color: 'blue',
@@ -30,32 +31,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }, showError, {
         enableHighAccuracy: true
     });
-
-    // Guardar el zoom actual para evitar que se deshaga
-    let currentZoom = map.getZoom();
-
-    map.on('zoomend', () => {
-        // Guardar el zoom después de cada cambio
-        currentZoom = map.getZoom();
-    });
 });
 
 function startTracking() {
-    if (!navigator.geolocation) {
-        alert("La geolocalización no es soportada por tu navegador.");
-        return;
-    }
-
     document.getElementById('stopBtn').disabled = false;
     document.getElementById('saveBtn').disabled = false;
     document.getElementById('exportBtn').disabled = false;
     document.getElementById('startBtn').disabled = true;
 
-    // Iniciar seguimiento
     watchId = navigator.geolocation.watchPosition(position => {
         const { latitude, longitude } = position.coords;
 
-        // Actualizar marcador azul
         if (liveMarker) {
             liveMarker.setLatLng([latitude, longitude]);
         } else {
@@ -67,7 +53,6 @@ function startTracking() {
             }).addTo(map);
         }
 
-        // Actualizar posición y trazar línea
         updatePosition(position);
     }, showError, {
         enableHighAccuracy: true,
@@ -88,7 +73,6 @@ function stopTracking() {
 function updatePosition(position) {
     const { latitude, longitude } = position.coords;
 
-    // Calcular distancia y actualizar marcador
     if (coordinates.length > 0) {
         const lastCoord = coordinates[coordinates.length - 1];
         const distance = calculateDistance(lastCoord, [latitude, longitude]);
@@ -96,16 +80,57 @@ function updatePosition(position) {
         document.getElementById('distance').textContent = totalDistance.toFixed(2);
     }
 
-    // Añadir coordenadas y trazar línea
     coordinates.push([latitude, longitude]);
     polyline.setLatLngs(coordinates);
 
-    // Centrar mapa automáticamente pero manteniendo el zoom
     map.setView([latitude, longitude], map.getZoom(), { animate: true });
 }
 
+function saveRoute() {
+    const routeName = prompt("Nombre de la ruta:");
+    if (!routeName) {
+        alert("Nombre de ruta inválido.");
+        return;
+    }
+
+    savedRoutes[routeName] = {
+        coordinates: [...coordinates],
+        totalDistance
+    };
+
+    localStorage.setItem('savedRoutes', JSON.stringify(savedRoutes));
+    alert(`Ruta "${routeName}" guardada.`);
+    renderSavedRoutes();
+}
+
+function renderSavedRoutes() {
+    const routesList = document.getElementById('routesList');
+    routesList.innerHTML = "";
+
+    for (const routeName in savedRoutes) {
+        const li = document.createElement('li');
+        li.textContent = routeName;
+        li.addEventListener('click', () => loadRoute(routeName));
+        routesList.appendChild(li);
+    }
+}
+
+function loadRoute(routeName) {
+    const route = savedRoutes[routeName];
+    if (!route) {
+        alert("Ruta no encontrada.");
+        return;
+    }
+
+    // Mostrar la ruta en el mapa
+    polyline.setLatLngs(route.coordinates);
+    map.fitBounds(polyline.getBounds());
+
+    alert(`Ruta "${routeName}" cargada. Distancia total: ${route.totalDistance.toFixed(2)} km`);
+}
+
 function calculateDistance(coord1, coord2) {
-    const R = 6371; // Radio de la Tierra en km
+    const R = 6371;
     const dLat = degToRad(coord2[0] - coord1[0]);
     const dLon = degToRad(coord2[1] - coord1[1]);
     const a =
@@ -123,35 +148,4 @@ function degToRad(deg) {
 function showError(error) {
     console.error("Error al obtener ubicación:", error);
     alert("No se pudo obtener la ubicación. Por favor, activa el GPS y recarga la página.");
-}
-
-function saveRoute() {
-    const routeData = {
-        coordinates,
-        totalDistance
-    };
-
-    const blob = new Blob([JSON.stringify(routeData, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'ruta.json';
-    a.click();
-    URL.revokeObjectURL(url);
-}
-
-function exportMap() {
-    const mapElement = document.getElementById('map');
-    domtoimage.toBlob(mapElement)
-        .then(blob => {
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'mapa.png';
-            a.click();
-            URL.revokeObjectURL(url);
-        })
-        .catch(error => {
-            console.error('Error al exportar el mapa:', error);
-        });
 }
