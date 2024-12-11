@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('stopBtn').addEventListener('click', stopTracking);
     document.getElementById('saveBtn').addEventListener('click', saveRoute);
     document.getElementById('exportBtn').addEventListener('click', exportMap);
+    document.getElementById('toggleRoutesBtn').addEventListener('click', toggleRoutesSection);
 
     // Cargar rutas guardadas al iniciar
     renderSavedRoutes();
@@ -32,6 +33,19 @@ document.addEventListener("DOMContentLoaded", () => {
         enableHighAccuracy: true
     });
 });
+
+function toggleRoutesSection() {
+    const savedRoutesDiv = document.getElementById('savedRoutes');
+    const toggleButton = document.getElementById('toggleRoutesBtn');
+
+    if (savedRoutesDiv.style.display === 'none') {
+        savedRoutesDiv.style.display = 'block';
+        toggleButton.textContent = "Ocultar Rutas Guardadas";
+    } else {
+        savedRoutesDiv.style.display = 'none';
+        toggleButton.textContent = "Mostrar Rutas Guardadas";
+    }
+}
 
 function startTracking() {
     document.getElementById('stopBtn').disabled = false;
@@ -122,7 +136,6 @@ function loadRoute(routeName) {
         return;
     }
 
-    // Mostrar la ruta en el mapa
     polyline.setLatLngs(route.coordinates);
     map.fitBounds(polyline.getBounds());
 
