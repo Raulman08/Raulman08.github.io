@@ -47,3 +47,24 @@ button:disabled {
 #stats span {
     font-weight: bold;
 }
+#savedRoutes {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+#savedRoutes h3 {
+    margin: 0;
+}
+#routesList {
+    list-style-type: none;
+    padding: 0;
+}
+#routesList li {
+    margin: 5px 0;
+    cursor: pointer;
+}
+#routesList li:hover {
+    text-decoration: underline;
+}
