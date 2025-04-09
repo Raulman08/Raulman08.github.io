@@ -18,10 +18,10 @@ header {
 
 /* Mapa */
 #map {
-    flex: 1;
-    height: 70vh; /* Altura del mapa */
+    height: 500px; /* o 100vh para pantalla completa */
     width: 100%;
 }
+
 
 /* Controles */
 #controls {
