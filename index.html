@@ -1,40 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Map Tracker</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dom-to-image@2.6.0/src/dom-to-image.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cafetería Burballes</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Seguimiento de Rutas</h1>
-    </header>
+  <header class="hero">
+    <div class="hero-texto">
+      <h1>Cafetería Burballes</h1>
+      <p>Un rincón acogedor en Palma para disfrutar del buen café y la buena comida</p>
+    </div>
+  </header>
 
-    <main>
-        <div id="map"></div>
+  <section class="sobre-nosotros">
+    <h2>Sobre nosotros</h2>
+    <p>Somos una cafetería de barrio con corazón mallorquín. Nuestro objetivo es ofrecerte desayunos, meriendas y comidas con el sabor de casa, en un ambiente cálido y familiar.</p>
+    <p>Desde el primer día, apostamos por ingredientes frescos, productos locales y un trato cercano. Nuestra cafetería se ha convertido en punto de encuentro de vecinos, familias y visitantes que buscan una experiencia auténtica y sin prisas. Ya sea para tomar un café leyendo el periódico o compartir un bocata con amigos, Burballes es tu sitio.</p>
+  </section>
 
-        <div id="controls">
-            <button id="startBtn">Iniciar</button>
-            <button id="stopBtn" disabled>Detener</button>
-            <button id="saveBtn" disabled>Guardar Ruta</button>
-            <button id="exportBtn" disabled>Exportar Mapa</button>
-            <button id="toggleRoutesBtn">Mostrar Rutas Guardadas</button>
-        </div>
+  <section class="menu">
+    <h2>Menú destacado</h2>
+    <ul>
+      <li><strong>Pa amb oli</strong> – clásico y sabroso</li>
+      <li><strong>Ensaïmada casera</strong> – dulce tradicional</li>
+      <li><strong>Café con leche</strong> – el de toda la vida</li>
+      <li><strong>Bocadillos variados</strong> – para todos los gustos</li>
+      <li><strong>Zumo de naranja natural</strong> – recién exprimido</li>
+      <li><strong>Tostadas con tomate y jamón</strong> – el desayuno perfecto</li>
+    </ul>
+    <p>Nuestro menú combina recetas tradicionales mallorquinas con toques modernos, siempre cuidando el sabor y la presentación. También disponemos de opciones para vegetarianos y personas con intolerancias. ¡Pregúntanos!</p>
+  </section>
 
-        <div id="savedRoutes" style="display: none;">
-            <h3>Rutas Guardadas</h3>
-            <ul id="routesList"></ul>
-        </div>
-    </main>
+  <section class="galeria">
+    <h2>Galería</h2>
+    <img src="cap/2025-05-21.jpg" alt="">
+    <img src="cap/2025-05-21-2.jpg" alt="">
+    <img src="cap/2025-05-21-3.jpg" alt="">
+    <img src="cap/2025-01-11.jpg" alt="">
+    <img src="cap/2025-01-11-2.jpg" alt="">
+    <img src="cap/unnamed-2.jpg" alt="">
 
-    <footer>
-        <p>Desarrollado por Raúl Martin Rosselló</p>
-    </footer>
+    <p>Descubre nuestro espacio acogedor, lleno de luz natural, mesas de madera y un ambiente tranquilo que invita a quedarse. Pronto añadiremos más imágenes de nuestros platos y rincones favoritos del local.</p>
+  </section>
 
-    <script src="script.js"></script>
+  <section class="ubicacion">
+    <h2>Dónde estamos</h2>
+    <p>Calle Ficticia 123, Palma, Mallorca</p>
+    <p><strong>Horario:</strong> Lunes a sábado, 7:00 - 15:00</p>
+    <p>Nos encontrarás a pocos pasos del centro histórico, cerca de paradas de autobús y fácil de llegar caminando. ¡Pásate y disfruta!</p>
+  </section>
+
+  <section class="contacto">
+    <h2>Contacto</h2>
+    <p>Tel: 600 123 456</p>
+    <p>Email: contacto@burballes.com</p>
+    <a class="whatsapp" href="https://wa.me/34600123456" target="_blank">Escríbenos por WhatsApp</a>
+    <p>También puedes seguirnos en nuestras redes sociales para ver las novedades del menú, promociones especiales y más fotos del día a día en Burballes.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Cafetería Burballes. Todos los derechos reservados.</p>
+  </footer>
 </body>
 </html>
