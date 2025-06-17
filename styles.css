@@ -1,97 +1,78 @@
-/* Estilo general */
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fffaf5;
+  color: #333;
+  line-height: 1.6;
 }
 
-/* Encabezado */
-header {
-    background-color: #007BFF;
-    color: white;
-    text-align: center;
-    padding: 1em 0;
-    font-size: 1.5em;
+header.hero {
+  background: url('cap/unnamed.jpg') no-repeat center center/cover;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
 
-/* Mapa */
-#map {
-    height: 500px; /* o 100vh para pantalla completa */
-    width: 100%;
+.hero-texto {
+  text-align: center;
+  background-color: rgba(0,0,0,0.4);
+  padding: 20px;
+  border-radius: 10px;
 }
 
-
-/* Controles */
-#controls {
-    display: flex;
-    justify-content: center;
-    margin: 1em 0;
-    gap: 10px;
+section {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: auto;
 }
 
-#controls button {
-    padding: 10px 15px;
-    font-size: 1em;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+h2 {
+  color: #794c20;
+  border-bottom: 2px solid #794c20;
+  padding-bottom: 10px;
 }
 
-#controls button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
+ul {
+  list-style: none;
+  padding: 0;
 }
 
-#controls button:hover:not(:disabled) {
-    background-color: #0056b3;
+ul li {
+  margin: 10px 0;
+  padding-left: 15px;
+  position: relative;
 }
 
-/* Sección de rutas guardadas */
-#savedRoutes {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 1em;
-    max-width: 90%;
-    margin: 1em auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ul li::before {
+  content: "☕";
+  position: absolute;
+  left: 0;
 }
 
-#savedRoutes h3 {
-    margin: 0 0 1em 0;
-    font-size: 1.2em;
+.galeria img {
+  max-width: 40%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-#savedRoutes ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.whatsapp {
+  display: inline-block;
+  background-color: #25D366;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-#savedRoutes ul li {
-    padding: 10px;
-    background-color: #f1f1f1;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#savedRoutes ul li:hover {
-    background-color: #e2e2e2;
-}
-
-/* Pie de página */
 footer {
-    text-align: center;
-    padding: 1em 0;
-    background-color: #007BFF;
-    color: white;
-    font-size: 0.9em;
+  text-align: center;
+  padding: 20px;
+  background-color: #f3e9d2;
+  color: #666;
+  font-size: 0.9em;
 }
