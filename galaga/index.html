@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Galaga Web Arcade</title>
+    <script src="https://unpkg.com/jsnes/dist/jsnes.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Galaga For Miel Julianna</h1>
+
+    <div class="cabinet">
+        <canvas id="gameCanvas" width="256" height="240"></canvas>
+        
+        <div id="overlay">
+            <h2 style="margin-bottom: 20px;">READY?</h2>
+            <button onclick="iniciarJuego()">PLAY NOW</button>
+        </div>
+
+        <div class="controls">
+            <span class="key">← →</span> Mover | 
+            <span class="key">Z</span> Disparar | 
+            <span class="key">ENTER</span> Start
+        </div>
+    </div>
+    <script src="scrip.js"></script>
+</body>
+</html>
